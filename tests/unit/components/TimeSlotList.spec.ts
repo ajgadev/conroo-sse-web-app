@@ -9,7 +9,7 @@ describe("TimeSlotList", () => {
       id: 1,
       start_time: "2024-07-22T13:00:00",
       end_time: "2024-07-22T13:30:00",
-      category: "yellow",
+      category: "yellow" as const,
       capacity: {
         current_capacity: 20,
         max_capacity: 50,
@@ -19,7 +19,7 @@ describe("TimeSlotList", () => {
       id: 2,
       start_time: "2024-07-23T14:00:00",
       end_time: "2024-07-23T14:30:00",
-      category: "green",
+      category: "green" as const,
       capacity: {
         current_capacity: 10,
         max_capacity: 50,
