@@ -84,5 +84,25 @@ This will run all the tests using Vitest and display the results in your termina
 
 9. Deployment Strategy:
 
-- The application was designed to be easily deployable on Vercel.
-- This allows for seamless continuous deployment directly from the GitHub repository.
+- The application could be easily deployed on Vercel.
+- Or, could be built and deployed to a static site hosting service like Netlify or GitHub Pages.
+
+
+
+## Further improvements
+
+1. Sorting options for time slots (e.g., by time, by available capacity).
+2. Filtering options (e.g., show only available slots, filter by category).
+3. A search functionality to find specific dates or times quickly.
+4. Animations for real-time updates to draw attention to changes.
+
+
+## Final thoughts
+
+It took me around 6 hours to build this application. I had to investigate the best way to implement real-time updates using SSE, which turned out be using `EventSource` API. It was pretty straightforward and similar to WebSockets, which I had used in the past.
+
+In my daily basis, I use Vue and Tailwind so I thought it would be a good fit for this project. I just had to iterate a few times how to group the data and how to display it.
+
+Regarding testing, since I was already using Vite for the build tool, I decided to use Vitest for testing. I struggled a little bit with the configuration but writting tests was no issue because it has a similar syntax to Jest (expect, describe, it, etc.) and has support for testing Vue components.
+
+I had a good time building this application and I think it's a simple and effective technical test.
