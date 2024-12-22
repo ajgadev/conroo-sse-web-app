@@ -6,17 +6,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import TimeSlotList from '@/components/TimeSlotList.vue';
-import { fetchTimeSlots, setupSSE } from '@/services/api';
-import { TimeSlot } from '@/types';
+import { ref, onMounted } from "vue";
+import TimeSlotList from "@/components/TimeSlotList.vue";
+import { fetchTimeSlots, setupSSE } from "@/services/api";
+import { TimeSlot } from "@/types";
 
 const timeSlots = ref<TimeSlot[]>([]);
 
 onMounted(async () => {
   timeSlots.value = await fetchTimeSlots();
   setupSSE((update) => {
-    const index = timeSlots.value.findIndex(slot => slot.id === update.id);
+    const index = timeSlots.value.findIndex((slot) => slot.id === update.id);
     if (index !== -1) {
       timeSlots.value[index].capacity.current_capacity = update.currentCapacity;
       timeSlots.value[index].category = update.category;

@@ -1,8 +1,9 @@
 # Setup and Run
 
 1. Clone the repository
-2. npm install
-3. npm run dev
+2. Create a .env file based on the .env.template file
+3. npm install
+4. npm run dev
 
 
 ## Running Tests

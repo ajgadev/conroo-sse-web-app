@@ -1,6 +1,7 @@
 import { TimeSlot, TimeSlotUpdate } from '@/types';
+import { env } from '@/env';
 
-const API_BASE_URL = 'https://timeslot-stream-ha2tva3niq-ey.a.run.app';
+const API_BASE_URL = env.VITE_API_BASE_URL;
 
 export async function fetchTimeSlots(): Promise<TimeSlot[]> {
   const response = await fetch(`${API_BASE_URL}/timeSlots`);

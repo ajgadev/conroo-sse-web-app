@@ -1,6 +1,8 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { fetchTimeSlots, setupSSE } from '@/services/api';
 
+const API_BASE_URL = 'https://timeslot-stream-ha2tva3niq-ey.a.run.app';
+
 describe('API Service', () => {
   beforeEach(() => {
     vi.stubGlobal('fetch', vi.fn());
@@ -33,7 +35,7 @@ describe('API Service', () => {
 
       const result = await fetchTimeSlots();
       expect(result).toEqual(mockResponse);
-      expect(fetch).toHaveBeenCalledWith('https://timeslot-stream-ha2tva3niq-ey.a.run.app/timeSlots');
+      expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/timeSlots`);
     });
 
     it('throws an error when fetch fails', async () => {
@@ -58,7 +60,7 @@ describe('API Service', () => {
       const onUpdate = vi.fn();
       const cleanup = setupSSE(onUpdate);
 
-      expect(EventSource).toHaveBeenCalledWith('https://timeslot-stream-ha2tva3niq-ey.a.run.app/sse');
+      expect(EventSource).toHaveBeenCalledWith(`${API_BASE_URL}/sse`);
 
       const mockEvent = { data: JSON.stringify({ id: 1, currentCapacity: 30, category: 'yellow' }) };
       mockEventSource.onmessage(mockEvent);
